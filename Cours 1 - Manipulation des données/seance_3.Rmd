@@ -69,4 +69,17 @@ datasorted <- arrange(mydata, year)
 datareverse <- arrange(mydata, desc(year))
 ```
 
-## 
+## Pivot
+```{r}
+wideData <- datasorted %>%
+  pivot_wider(names_from = isicCode, values_from = value)
+```
+```{r}
+longData <- wideData %>% 
+  pivot_longer(!c(year, tableCode, countryCode), names_to = "isicCode", values_to = "value")
+```
+## Fusionner les données avec merge
+```{r}
+datafull <- left_join(datafiltred, mydata, c("year"))
+```
+
