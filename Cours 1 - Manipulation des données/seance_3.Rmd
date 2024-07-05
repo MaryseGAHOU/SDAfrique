@@ -1,0 +1,26 @@
+## Importation des librairies
+```{r}
+library(gsheet)
+library(dplyr)
+library(tidyr)
+library(readr)
+```
+
+## Importer les données depuis un fichier csv
+dataLab2 <- readr::read_csv("./lab2_data.csv")
+
+## Importer les données depuis googlesheet
+```{r}
+mydata <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1uLaXke-KPN28-ESPPoihk8TiXVWp5xuNGHW7w7yqLCc/edit#gid=416085055")
+```
+
+## Exemple de piping "tuyauterie" avec glimpse() qui permet d'afficher le nombre de lignes et le nombre de colonnes et donne un aperçu du contenu de chaque colonne
+```{r}
+mydata %>%
+  glimpse()
+```
+## Afficher les six (06) premières lignes du dataframe
+```{r}
+head(mydata)
+```
+## 
