@@ -23,4 +23,50 @@ mydata %>%
 ```{r}
 head(mydata)
 ```
+## Ajouter une nouvelle colonne
+```{r}
+mydata$newColumn <- 45
+```
+
+## Noms des colonnes
+```{r}
+colnames(mydata)
+```
+## Six (06) premières lignes d'une colonne spécifique
+```{r}
+head(mydata[,"year"])
+```
+## Calcule avec des colonnes et sauvegarde de la réponse dans une colonne
+```{r}
+mydata$newColumn <- mydata$newColumn * 2 + 5
+```
+
+## Renommer une colonne
+```{r}
+mydata <- mydata %>% 
+  dplyr::rename(newColumnRenamed = newColumn)
+colnames(mydata)
+```
+## Supprimer une colonne
+```{r}
+mydata$newColumnRenamed <- NULL
+
+colnames(mydata)
+```
+## Voir la dimension du dataframe
+```{r}
+dim(mydata)
+```
+## Filtrer les données dans le dataframe
+```{r}
+datafiltred <- filter(mydata, year == 2010)
+```
+
+## Trier les données
+```{r}
+datasorted <- arrange(mydata, year)
+
+datareverse <- arrange(mydata, desc(year))
+```
+
 ## 
